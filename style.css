@@ -1,0 +1,187 @@
+body {
+  font-family: arial;
+}
+
+#links {
+  position: relative;
+  width: 78px;
+  margin: 30px auto 20px;
+  font-size: 28px;
+}
+
+i.fa {
+  padding: 0 4px;
+  color: #474747;
+}
+
+i.fa:hover {
+  color: #04cbc6;
+  cursor: pointer;
+}
+
+.fa-list-alt {
+  position: relative;
+  top: 4px;
+}
+
+#calendar {
+  width: 960px;
+  margin: 20px auto;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #252525;
+  color: #cbcbcb;
+}
+
+#prev {
+  float: left;
+  margin-left: 25px;
+}
+
+#month {
+  text-align: center;
+}
+
+#next {
+  float: right;
+  margin-right: 25px;
+}
+
+#prev:hover, #next:hover {
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  height: 500px;
+  background-color: #ededed;
+}
+
+
+/*****calendar view*****/
+table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid #585858;
+}
+
+thead {
+  line-height: 35px;
+  background-color: #04cbc6;
+  color: #252525;
+}
+
+tbody {
+  background-color: #dcdcdc;
+}
+
+td {
+  position: relative;
+  width: 14.28%;
+  text-align: right;
+  vertical-align: top;
+  padding: 5px;
+  background-color: #ededed;
+  overflow: hidden;
+  height: 90px;
+}
+
+td p {
+  display: inline-block;
+  margin: 0;
+  padding: 2px 3px;
+  position: relative;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
+form {
+  margin-top: 3px;
+}
+
+input {
+  margin-top: 5px;
+  font-size: 12px;
+}
+input[type='text'] {
+    width: 95px;
+    float: left;
+}
+
+span {
+  float: left;
+  display: block;
+  min-width: 100px;
+  text-align: left;
+  padding: 5px 0 0 5px;
+  font-size: 12px;
+}
+
+span:hover {
+  cursor: pointer;
+  color: #04cbc6;
+}
+
+/*****event view*****/
+ul#event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #ededed;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#even-list div {
+  height: 20px;
+  width: 100%;
+}
+
+.event {
+  min-height: 99px;
+  border-bottom: 1px solid #585858;
+}
+/*.event:not(:last-child) {
+  border-bottom: 1px solid #585858;
+}*/
+
+.event:nth-child(odd) {
+  background-color: #04cbc6;
+}
+
+.event h3 {
+  padding: 25px 25px 8px;
+  margin: 0;
+}
+
+.event p {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.event p:hover{
+  color: #666;
+  cursor: pointer;
+}
+
+.event input {
+  margin-left: 25px;
+}

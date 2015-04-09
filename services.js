@@ -1,29 +1,39 @@
 (function () {
   angular.module("calendar")
     .service("Months", [function () {
-      return { 0 : 'January',
-               1 : 'February',
-               2 : 'March',
-               3 : 'April',
-               4 : 'May',
-               5 : 'June',
-               6 : 'July',
-               7 : 'August',
-               8 : 'September',
-               9 : 'October',
-               10 : 'November',
-               11 : 'December'
-             };
+      return [ 'January',
+               'February',
+               'March',
+               'April',
+               'May',
+               'June',
+               'July',
+               'August',
+               'September',
+               'October',
+               'November',
+               'December'
+             ];
     }])
-    .service("Weekdays", [function () {
-      return { 0 : 'Sun',
-                 1 : 'Mon',
-                 2 : 'Tue',
-                 3 : 'Wed',
-                 4 : 'Thu',
-                 5 : 'Fri',
-                 6 : 'Sat'
-            };
+    .service("Events", [function () {
+      return {
+        "2015-0": {
+          "1": ["New Years Day"],
+          "19": ["Martin Luther King Day"]
+        },
+        "2015-1": {
+          "2": ["Groundhogs Day"],
+          "14": ["Valentines Day"],
+          "16": ["Presidents Day"]
+        },
+        "2015-2": {
+          "17": ["St Patricks Day"],
+          "25": ["jQuery Calendar Due"]
+        },
+        "2015-3": {
+          "5": ["Easter"]
+        }
+      };
     }])
 
 })();

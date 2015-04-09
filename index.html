@@ -14,11 +14,11 @@
 
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl as mainCtrl">
 
   <nav>
     <div id="links">
-      <i class="fa fa-calendar"></i>
+      <i class="fa fa-calendar" ng-click="mainCtrl.monthView()"></i>
       <i class="fa fa-list-alt"></i>
     </div>
   </nav>
@@ -26,9 +26,9 @@
   <div id="calendar">
 
   	<header>
-	    <div id="prev">< Prev</div>
-      <div id="next">Next ></div>
-	    <div id="month">{{month}}</div>
+	    <div id="prev" ng-click="mainCtrl.prevMonth()">< Prev</div>
+      <div id="next" ng-click="mainCtrl.nextMonth()">Next ></div>
+	    <div id="month">{{mainCtrl.month}}</div>
     </header>
 
 
@@ -47,7 +47,11 @@
 	    </thead>
 
       <tbody>
-
+        <tr ng-repeat="week in mainCtrl.weeks">
+          <td ng-repeat="day in mainCtrl.days | limitTo: 7">
+            <p>{{mainCtrl.days[day]}}</p>
+          </td>
+        </tr>
 
       </tbody>
 	    </table>

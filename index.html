@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="calendar">
+<head>
+
+  <title>Angular.Js Calendar</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="controller.js"></script>
+  <script type="text/javascript" src="services.js"></script>
+
+
+</head>
+
+<body ng-controller="MainCtrl as main">
+
+  <nav>
+    <div id="links">
+      <i class="fa fa-calendar" ng-click='onCalendar = true'></i>
+      <i class="fa fa-list-alt" ng-click='onCalendar = false'></i>
+    </div>
+  </nav>
+
+  <div id="calendar" ng-controller='CalendarCtrl as calendar' ng-show='main.onCalendar'>
+
+  	<header>
+	    <div id="prev" ng-click="calendar.prev()">< Prev</div>
+      <div id="next" ng-click="calendar.next()">Next</div>
+	    <div id="month">{{calendar.month.monthName}}</div>
+    </header>
+
+
+  	<main>
+
+
+	        <div id="weekday-titles" class="group">
+	            <div class="day-title"><p>Sun</p></div>
+	            <div class="day-title"><p>Mon</p></div>
+	            <div class="day-title"><p>Tue</p></div>
+	            <div class="day-title"><p>Wed</p></div>
+	            <div class="day-title"><p>Thu</p></div>
+	            <div class="day-title"><p>Fri</p></div>
+	            <div class="day-title"><p>Sat</p></div>
+	        </div>
+
+
+          <div id='day-boxes'ng-repeat='day in calendar.month.days'>
+            <div class="day-box" ng-click='day.editing = !day.editing'>
+              <span>{{day.date}}</span>
+              <form ng-submit='calendar.addEvent(eventTitle, day)' ng-show='day.editing'>
+                <input type='text' ng-model='eventTitle' />
+              </form>
+              <ul>
+                <li ng-repeat='event in day.events'>
+                  <form ng-submit='calendar.updateEvent(event, day, $index)' ng-show='day.editing'>
+                    <input type='text' ng-model='event' />
+                  </form>
+                  <span ng-hide='day.editing'>
+                    {{event}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+
+
+        <div ng-controller='ListCtrl as list' ng-hide='main.onCalendar'>
+
+          <ul>
+            <li ng-repeat'event in list.events' ng-click='event.editing = !event.editing'>
+              <form ng-submit='list.updateEvent(event, $index)'>
+                <input type='text' ng-show'event.editing' ng-model='event.title' />
+              </form>
+              <span ng-hide='event.editing'>
+                {{event.title}}
+              </span>
+            </li>
+
+        </div>
+
+
+</body>
+
+
+</html>

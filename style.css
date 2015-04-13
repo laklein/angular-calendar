@@ -144,6 +144,11 @@ span:hover {
 }
 
 /*****event view*****/
+#list {
+  width: 960px;
+  margin: 20px auto;
+}
+
 ul#event-list {
   list-style: none;
   padding: 0;

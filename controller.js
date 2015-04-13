@@ -7,7 +7,7 @@
 
     .controller('CalendarCtrl', ['Data', 'MonthNames', function(data, monthNames) {
       var self = this;
-      console.log(data)
+      // console.log(data)
 
       self.month = {
         year: null,
@@ -38,6 +38,7 @@
       }
 
       this.setMonth = function(monthNum, year) {
+        self.month.year = year;
         self.month.monthNum = monthNum;
         self.month.monthName = monthNames[monthNum];
         self.month.days = [];
@@ -95,7 +96,7 @@
           var year = self.month.year;
         } else {
           var month = self.month.monthNum = 0;
-          var year = self.month.year -1;
+          var year = self.month.year +1;
         }
         self.setMonth(month, year);
       }
@@ -119,12 +120,17 @@
       var self = this;
       var numEvents = 4;
 
-      function getEvents() {
+      console.log('data', data)
+      var getEvents = function() {
         var events = [];
         for (var year in data) {
+          console.log('year', year)
           for (var month in year) {
-            for (var date in days) {
-              for (var e in date.events) {
+            console.log('month', month);
+            for (var date in month) {
+              console.log('date', date);
+              for (var e in date) {
+                console.log('e', e);
                 var event = {};
                 event.year = year;
                 event.month = month;

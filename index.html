@@ -18,8 +18,8 @@
 
   <nav>
     <div id="links">
-      <i class="fa fa-calendar" ng-click='onCalendar = true'></i>
-      <i class="fa fa-list-alt" ng-click='onCalendar = false'></i>
+      <i class="fa fa-calendar" ng-click='main.onCalendar = true'></i>
+      <i class="fa fa-list-alt" ng-click='main.onCalendar = false'></i>
     </div>
   </nav>
 
@@ -28,7 +28,7 @@
   	<header>
 	    <div id="prev" ng-click="calendar.prev()">< Prev</div>
       <div id="next" ng-click="calendar.next()">Next</div>
-	    <div id="month">{{calendar.month.monthName}}</div>
+	    <div id="month">{{calendar.month.monthName}}&nbsp;{{calendar.month.year}}</div>
     </header>
 
 
@@ -48,7 +48,7 @@
 
           <div id='day-boxes'ng-repeat='day in calendar.month.days'>
             <div class="day-box" ng-click='day.editing = !day.editing'>
-              <span>{{day.date}}</span>
+              <p>{{day.date}}</p>
               <form ng-submit='calendar.addEvent(eventTitle, day)' ng-show='day.editing'>
                 <input type='text' ng-model='eventTitle' />
               </form>
@@ -68,16 +68,19 @@
       </div>
 
 
-        <div ng-controller='ListCtrl as list' ng-hide='main.onCalendar'>
+        <div id="list" ng-controller='ListCtrl as list' ng-hide='main.onCalendar'>
 
-          <ul>
-            <li ng-repeat'event in list.events' ng-click='event.editing = !event.editing'>
-              <form ng-submit='list.updateEvent(event, $index)'>
-                <input type='text' ng-show'event.editing' ng-model='event.title' />
-              </form>
-              <span ng-hide='event.editing'>
-                {{event.title}}
-              </span>
+          <ul id="event-list">
+            <li class="event" ng-repeat'event in list.events' ng-click='event.editing = !event.editing'>
+              <h3>{{event.month}}&nbsp;{{event.date}}</h3>
+              <div class="group">
+                <form ng-submit='list.updateEvent(event, $index)'>
+                  <input type='text' ng-show'event.editing' ng-model='event.title' />
+                </form>
+                <p ng-hide='event.editing'>
+                  {{event.title}}
+                </p>
+              </div>
             </li>
 
         </div>

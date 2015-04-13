@@ -4,16 +4,14 @@
     return {
       2015: {
           3: {
-            2: ["April 2nd 2015!"],
+            6: ["April 6 2015!"],
             15: ["Imagine Dragons Concert"]
+          },
+          4: {
+            7: ["May 7th 2015!"],
+            22: ["Rock Climb El Capitan"]
           }
       },
-      // 2015: {
-      //     4: {
-      //       7: ["May 7th 2015!"],
-      //       22: ["Rock Climb El Capitan"]
-      //     }
-      // }
     }
   }])
   .service('MonthNames', [function() {
